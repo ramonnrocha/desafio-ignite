@@ -1,0 +1,119 @@
+.hometask {
+  width: max(73.6rem);
+} 
+
+.hometask header {
+  height: 4.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+.hometask header .created {
+  color: var(--blue-300);
+
+}
+
+.hometask header .completed{
+  color: var(--purple);
+
+}
+
+.hometasks {
+  margin-top: 2.4rem;
+  height: 27rem;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  
+  
+}
+
+.hometask .noTasks {
+  width: 100%;
+  margin-top: -3rem;
+  padding-top: 5.4rem;
+  border-top: 1px solid var(--blue-600);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 2rem;
+  text-align: center;
+}
+
+.hometask .noTasks  h4 {
+  font-size: 1.6rem;
+  color: var(--gray-200);
+}
+
+.hometask .noTasks  p {
+  font-size: 1.6rem;
+  color: var(--gray-300);
+}
+
+.form {
+  width: max(73.6rem);
+  margin-top: -2.4rem;
+  margin-bottom: 6.4rem;
+}
+
+.form form {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+
+.form textarea {
+  width: max(63.8rem);
+  height: min(5.4rem);
+  background: var(--gray-500);
+  color: var(--gray-200);
+  padding: 1.6rem;
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  resize: none;
+  font-size: 1.6rem;
+  margin-right: .8rem;
+}
+
+ 
+.form button {
+  display: inline;
+  background-color: var(--blue-600);
+  color: white;
+  border: 1px solid var(--gray-700);
+  border-radius: 8px;
+  width: min(9rem);
+  height: 5.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: .8rem;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+
+  transition: background-color.2s;
+}
+
+.form button:hover {
+  background-color: var(--blue-300);
+}
+
+.button:not(:disabled):hover {
+  background: var(--blue-300);
+}
+
+.button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
