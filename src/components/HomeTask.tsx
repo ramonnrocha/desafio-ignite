@@ -10,10 +10,11 @@ interface Props {
   tasks: ITask[];
   onAddTask : (taskTitle : string) => void;
   onDeleteTask : (taskId : string) => void;
+  onCompletedTask : (taskId : string) => void;
 }
 
 
-export function HomeTask({ tasks, onAddTask, onDeleteTask } : Props){ 
+export function HomeTask({ tasks, onAddTask, onDeleteTask, onCompletedTask } : Props){ 
   const [ title, setTiTle] = useState("");
   const [ id, set] = useState("");
   
@@ -61,8 +62,18 @@ export function HomeTask({ tasks, onAddTask, onDeleteTask } : Props){
          </header>
           <div className={styles.hometasks}>
           {tasks.map( (task) => (
-            <Task key={task.id} task={task} onDelete={onDeleteTask}           />
+            <Task key={task.id} task={task} onDelete={onDeleteTask} onCompletedTask={onCompletedTask}          />
           ))}
+
+          {tasks.length <= 0 && (
+            <div className={styles.noTasks}>  
+              <img src={noTask} alt="no-task"/>
+              <div>
+              <h4>Você ainda não tem tarefas cadastradas</h4>
+              <p>Crie tarefas e organize seus itens a fazer</p>
+              </div>
+            </div>
+          )}
             
           </div>
     </div>

@@ -32,9 +32,14 @@
   cursor: pointer;
 }
 
+.task .textCompleted p {
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+
 .checkContainer {
-  width: 1.125rem;
-  height: 1.125rem;
+  width: 1.6rem;
+  height: 1.6rem;
   background: none;
   border: none;
 }
@@ -49,7 +54,13 @@
 .checkContainer svg {
   width: 100%;
   height: 100%;
-  color: var(--purple);
+  background-color: var(--purple);
+  border-radius: 999px;
 }
+.checkContainer > svg:hover {
+  color: var(--blue-300);
+}
+
+
 
 
