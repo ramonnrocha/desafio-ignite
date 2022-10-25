@@ -117,3 +117,12 @@
   cursor: not-allowed;
 }
 
+
+.homeTask span {
+  background: var(--gray-400);
+  color: var(--gray-200);
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+}

@@ -1,38 +1,28 @@
 
-import { Trash } from "phosphor-react";
+import { Trash,Check } from "phosphor-react";
 import {   InputHTMLAttributes, useState} from "react";
+import { ITask } from "../App";
 import styles from './Task.module.css'
 
 
-interface TasksProps {
-  id: number,
-  title: string,
-  isComplete: boolean,
-  onDeleteTask: (task : string) => void;
+interface Props {
+  task: ITask;
+
 }
 
-
-
-export function Task({ id, title, isComplete, onDeleteTask } : TasksProps ){
-
-  function handleDeleteTask (){
-    onDeleteTask(title)
-  }
-
-  function verifyIsComlplete (){
-    isComplete = true;
-  }
-
-  
+export function Task({ task }: Props){
 
   return (
     <div className={styles.task}>
       <div className={styles.customcheckbox}>
-       <input type="checkbox" onClick={verifyIsComlplete} name="checkbox" id="1" />
-       <label htmlFor=""></label>
+      <button
+        className={styles.checkContainer}
+      >
+        {task.isCompleted ? <Check /> : <div />}
+      </button>
       </div>
-      <p>{title}</p>
-      <button onClick={handleDeleteTask} title="Deletar Comentário">
+      <p>Parado</p>
+      <button  title="Deletar Comentário">
           <Trash  size={20}/>
       </button>
     </div>

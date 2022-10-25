@@ -4,50 +4,26 @@ import noTask from '../assets/no-task.svg';
 import { Task } from './Task';
 import { PlusCircle } from 'phosphor-react';
 import { ChangeEvent, FormEvent, useState } from 'react';
+import { ITask } from '../App';
+
+interface Props {
+  tasks: ITask[];
+}
+
+
+export function HomeTask({ tasks } : Props){ 
 
 
 
-export function HomeTask(){ 
-
-  const [tasks, setTasks] = useState([
-    'Começar a Estudar JavaScript'
-  ])
-
-  const [ newTitleTask, setNewTitleTask] = useState('')
-
-  function handleCreateNewTask(event: FormEvent) {
-    event.preventDefault();
-
-    
-    setTasks([...tasks, newTitleTask])
-    setNewTitleTask('');
-  }
-
-  function handleNewTaskChange (event: ChangeEvent<HTMLTextAreaElement>){
-    setNewTitleTask(event.target.value)
-  }
-
-  function onDeleteTask(taskDelete: string){
-    const taskDeletedOne = tasks.filter(task => {
-      return task != taskDelete;
-    })
-    
-    setTasks(taskDeletedOne)
-  }
-
-  const isNewTaskEmpty = newTitleTask.length === 0
 
   return(
     <div>
       <div className={styles.form}>
-        <form onSubmit={handleCreateNewTask} action="">
+        <form >
             <textarea 
-              value={newTitleTask}
-              onChange={handleNewTaskChange}
-              name='task'
               required
               placeholder="Adicione uma nova tarefa" />
-            <button className={styles.button} type="submit" disabled={isNewTaskEmpty}>
+            <button className={styles.button} type="submit" >
                Criar
               <PlusCircle size={16} />
             </button>
@@ -65,11 +41,12 @@ export function HomeTask(){
             </div>
          </header>
           <div className={styles.hometasks}>
-          {tasks.map( task => (
-            <Task key={task} id={1} title={task} isComplete={true} onDeleteTask = {onDeleteTask}            
-              />
+          {tasks.map( (task) => (
+            <Task task={task} 
+            />
           ))}
-        </div>
+            
+          </div>
     </div>
 
 
