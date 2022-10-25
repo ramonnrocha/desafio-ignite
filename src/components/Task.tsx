@@ -7,12 +7,15 @@ import styles from './Task.module.css'
 
 interface Props {
   task: ITask;
-
+  onDelete: (taskId : string) => void;
 }
 
-export function Task({ task }: Props){
+export function Task({ task, onDelete }: Props){
 
   return (
+
+
+
     <div className={styles.task}>
       <div className={styles.customcheckbox}>
       <button
@@ -21,8 +24,8 @@ export function Task({ task }: Props){
         {task.isCompleted ? <Check /> : <div />}
       </button>
       </div>
-      <p>Parado</p>
-      <button  title="Deletar Comentário">
+      <p>{task.title}</p>
+      <button onClick={() => onDelete(task.id)} title="Deletar Comentário">
           <Trash  size={20}/>
       </button>
     </div>

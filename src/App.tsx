@@ -17,15 +17,36 @@ export function App() {
       id: 'teste',
       title: 'teste',
       isCompleted: false,
-    }
+    },
+    {
+      id: 'teste 2',
+      title: 'teste 2 ',
+      isCompleted: true,
+    },
   ]);
 
+  function addTask( taskTitle : string) {
+    setTasks([
+      ...tasks,
+      {
+        id: crypto.randomUUID(),
+        title : taskTitle,
+        isCompleted: false,
+      }
+    ])
+  }
+
+  function deleteTaskById( taskId : string) {
+    const newTasks = tasks.filter( task => task.id != taskId);
+
+    setTasks(newTasks);
+  }
   return (
 
       <>
         <Header />
         <div className={styles.wrapper}>
-          <HomeTask tasks={tasks}/>
+          <HomeTask onAddTask={addTask} tasks={tasks} onDeleteTask={deleteTaskById}/>
         </div>
       </>    
       
